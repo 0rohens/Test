@@ -37,7 +37,8 @@
 /* 37:   */   public String refreshSystem(HttpServletResponse response, HttpServletRequest request)
 /* 38:   */     throws Exception
 /* 39:   */   {
-/* 40:55 */     ServletContext application = RequestContextUtils.getWebApplicationContext(request).getServletContext();
+/* 40:55 */     ServletContext application = RequestContextUtils.findWebApplicationContext(request).getServletContext();
+/* 40:55 */     //ServletContext application = RequestContextUtils.getWebApplicationContext(request).getServletContext();
 /* 41:56 */     Blogger blogger = this.bloggerService.find();
 /* 42:57 */     blogger.setPassword(null);
 /* 43:58 */     application.setAttribute("blogger", blogger);
@@ -58,8 +59,12 @@
 /* 58:   */   }
 /* 59:   */ }
 
-
-/* Location:           D:\classes\
- * Qualified Name:     com.blog.controller.admin.SystemAdminController
- * JD-Core Version:    0.7.0.1
+
+
+/* Location:           D:\classes\
+
+ * Qualified Name:     com.blog.controller.admin.SystemAdminController
+
+ * JD-Core Version:    0.7.0.1
+
  */
